@@ -22,7 +22,7 @@ namespace PrototipoCalendario
             this.Text = "Calendário";
             this.Size = new Size(400, 450);
 
-        agendamentos = new List<DateTime>
+            agendamentos = new List<DateTime>
         {
             new DateTime(DateTime.Today.Year, DateTime.Today.Month, 5),
             new DateTime(DateTime.Today.Year, DateTime.Today.Month, 12),
@@ -110,7 +110,6 @@ namespace PrototipoCalendario
         {
             if (sender is Button button && button.Tag is DateTime selectedDate)
             {
-                //MessageBox.Show($"Data selecionada: {selectedDate.ToShortDateString()}", "Data Selecionada");
                 new FrmCadAgenda(selectedDate).ShowDialog();
             }
         }

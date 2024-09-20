@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using SisCalenderVicente.Data;
+
 namespace PrototipoCalendario
 {
     public partial class MainForm : Form
@@ -13,8 +16,17 @@ namespace PrototipoCalendario
         {
             InitializeComponent();
             InitializeComponent2();
+            CriarBancoDeDados();
             currentDate = DateTime.Today;
             RenderCalendar(currentDate);
+        }
+
+        private void CriarBancoDeDados()
+        {
+            using (var Banco = new AppDbContext())
+            {
+                Banco.Database.Migrate();
+            }
         }
 
         private void InitializeComponent2()
